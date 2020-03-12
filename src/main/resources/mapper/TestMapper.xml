@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjl.sharding.dao.TestDao">
+    <select id="getAlarmHistoryById" resultType="com.xjl.sharding.entity.AlarmHistoryDO">
+        SELECT * FROM alarmhis WHERE TurbineID = #{id}
+    </select>
+
+    <select id="getAlarmHistoryByTime" resultType="com.xjl.sharding.entity.AlarmHistoryDO">
+        SELECT * FROM alarmhis
+        WHERE TurbineID = 1
+        AND AlmClearTime BETWEEN #{startTime} AND #{endTime}
+    </select>
+</mapper>
